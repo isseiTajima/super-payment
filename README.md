@@ -27,9 +27,14 @@ src/
 
 ## セットアップと実行方法
 
-1. JDK 21とPostgreSQLがインストールされていることを確認
-2. `src/main/resources/application.conf`でデータベース接続を設定
-3. Gradleを使用してアプリケーションを実行：
+1. JDK 21とDockerがインストールされていることを確認
+2. 以下のコマンドでdockerを起動し、dbを立ち上げる
+   ```
+   cd env
+   docker-compose up -d
+   ```
+3. src/main/resources/application.conf`でデータベース接続を設定
+4. Gradleを使用してアプリケーションを実行：
    ```
    ./gradlew run
    ```
@@ -103,20 +108,14 @@ CREATE INDEX idx_invoices_payment_due_date ON invoices(payment_due_date);
 
 ### テスト
 
-- **ユニットテスト**: ドメインモデルとビジネスロジックの単体テスト（UserTest.kt, InvoiceTest.kt）
-- **統合テスト**: コントローラーとエンドポイントの統合テスト（InvoiceControllerTest.kt）
+- **ユニットテスト**: ドメインモデルとビジネスロジックの単体テスト（UserTest.kt, InvoiceTest.kt など）
+- **統合テスト**: コントローラーとエンドポイントの統合テスト（UserControllerTest.kt, InvoiceControllerTest.kt）
 - **テスト容易性**: インターフェースと依存性注入を活用したテスト容易性
 
 ### エラーハンドリング
 
 - **例外処理**: 適切な例外処理と意味のあるエラーメッセージ
 - **バリデーション**: ドメインオブジェクトでの入力検証（Email.kt, Password.kt など）
-
-### コード品質
-
-- **Value Objects**: 値オブジェクトによる型安全性と不変性の確保（Email.kt, Username.kt など）
-- **ファクトリーメソッド**: 複雑なオブジェクト生成ロジックのカプセル化（Invoice.create など）
-- **明確な命名規則**: 意図を明確に伝える命名によるコードの可読性向上
 
 ## 実施できなかったこと
 

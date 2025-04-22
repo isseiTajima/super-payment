@@ -8,7 +8,7 @@ import org.jetbrains.exposed.sql.transactions.transaction
 import java.time.LocalDateTime
 
 /**
- * Exposed SQLフレームワークを使用したUserRepositoryの実装。
+ * Exposed を使用したUserRepositoryの実装。
  * ユーザーエンティティのデータベース操作を提供します。
  */
 class ExposedUserRepository : UserRepository {

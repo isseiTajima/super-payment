@@ -35,5 +35,6 @@ build/
 local.properties
 gradlew
 gradlew.bat
+gradle/
 
 env/postgres-data/
